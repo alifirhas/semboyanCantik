@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startertemplate/pages/login_page.dart';
+import 'package:startertemplate/pages/setting_page.dart';
 import '../pages/about_page.dart';
 
 /*
@@ -74,6 +75,29 @@ class MyDrawer extends StatelessWidget {
                 leading: const Icon(Icons.info),
                 title: Text(
                   "A B O U T",
+                  style: TextStyle(color: Colors.grey[700]),
+                ),
+              ),
+            ),
+          ),
+
+          // SETTING PAGE
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingPage(),
+                  ),
+                );
+              },
+              child: ListTile(
+                leading: const Icon(Icons.settings),
+                title: Text(
+                  "S E T T I N G S",
                   style: TextStyle(color: Colors.grey[700]),
                 ),
               ),

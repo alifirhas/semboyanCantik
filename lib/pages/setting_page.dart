@@ -18,7 +18,15 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        backgroundColor: Colors.grey[300],
+        elevation: 0,
+        title: Text(
+          'S E T T I N G S',
+          style: TextStyle(color: Colors.grey[800]),
+        ),
+      ),
+      backgroundColor: Colors.grey[300],
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView.builder(

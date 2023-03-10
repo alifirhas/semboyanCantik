@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
         child: ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) => Container(

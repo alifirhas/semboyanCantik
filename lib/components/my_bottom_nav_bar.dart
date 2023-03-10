@@ -37,16 +37,12 @@ class MyBottomNavBar extends StatelessWidget {
             text: 'Home',
           ),
           GButton(
-            icon: Icons.shopping_bag_rounded,
-            text: 'Shop',
+            icon: Icons.food_bank,
+            text: 'Makanan',
           ),
           GButton(
             icon: Icons.person,
             text: 'Profile',
-          ),
-          GButton(
-            icon: Icons.settings,
-            text: 'Settings',
           ),
         ],
       ),

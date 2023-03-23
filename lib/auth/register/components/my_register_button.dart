@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 
-/*
-
-B U T T O N
-
-This is a custom built sign in button!
-
-*/
-
-class MyButton extends StatelessWidget {
+class MyRegisterButton extends StatelessWidget {
   final Function()? onTap;
 
-  const MyButton({super.key, required this.onTap});
+  const MyRegisterButton({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +18,7 @@ class MyButton extends StatelessWidget {
         ),
         child: const Center(
           child: Text(
-            "Sign In",
+            "Register",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

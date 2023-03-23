@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:startertemplate/pages/login_page.dart';
+import 'package:startertemplate/auth/login/login_page.dart';
 import 'package:startertemplate/pages/setting_page.dart';
 import '../pages/about_page.dart';
 

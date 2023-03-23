@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:startertemplate/pages/login_page.dart';
+import 'package:startertemplate/splash/splash_page.dart';
 
 /*
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // this is bringing us to the LoginPage first
-      home: LoginPage(),
+      home: SplashPage(),
     );
   }
 }

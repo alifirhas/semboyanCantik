@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:startertemplate/auth/login/login_page.dart';
+import 'package:startertemplate/introduction/introduction_page.dart';
 import 'package:startertemplate/main_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -19,14 +20,24 @@ class _SplashPageState extends State<SplashPage>
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool alreadyLogin = prefs.getBool('alreadyLogin') ?? false;
+    bool alreadyIntro = prefs.getBool('alreadyIntro') ?? false;
 
     if (alreadyLogin) {
-      navigator.pop();
-      navigator.push(
-        MaterialPageRoute(
-          builder: (context) => const MainPage(),
-        ),
-      );
+      if (alreadyIntro) {
+        navigator.pop();
+        navigator.push(
+          MaterialPageRoute(
+            builder: (context) => const MainPage(),
+          ),
+        );
+      } else {
+        navigator.pop();
+        navigator.push(
+          MaterialPageRoute(
+            builder: (context) => IntroductionPage(),
+          ),
+        );
+      }
     } else {
       navigator.pop();
       navigator.push(

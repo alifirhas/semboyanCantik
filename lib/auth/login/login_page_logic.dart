@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:startertemplate/introduction/introduction_page.dart';
 import 'package:startertemplate/main_page.dart';
 
 class LoginPageLogic {
@@ -12,18 +13,26 @@ class LoginPageLogic {
   }
 
   void signUserIn(BuildContext context) async {
-    // once user is authenticated, direct them to the main page
+    final navigator = Navigator.of(context);
+
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('alreadyLogin', true);
+    bool alreadyIntro = prefs.getBool('alreadyIntro') ?? false;
 
-    // ignore: use_build_context_synchronously
-    Navigator.pop(context);
-    // ignore: use_build_context_synchronously
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const MainPage(),
-      ),
-    );
+    if (alreadyIntro) {
+      navigator.pop();
+      navigator.push(
+        MaterialPageRoute(
+          builder: (context) => const MainPage(),
+        ),
+      );
+    } else {
+      navigator.pop();
+      navigator.push(
+        MaterialPageRoute(
+          builder: (context) => IntroductionPage(),
+        ),
+      );
+    }
   }
 }

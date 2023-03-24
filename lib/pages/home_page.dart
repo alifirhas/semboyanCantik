@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:startertemplate/utils/colors.dart';
 
 /*
 
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
             margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
-              color: Colors.grey[200],
+              color: MyColors.purple10,
             ),
           ),
         ),

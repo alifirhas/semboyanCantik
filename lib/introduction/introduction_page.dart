@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/introduction/introduction_page_logic.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
@@ -25,22 +26,22 @@ class IntroductionPage extends StatelessWidget {
 
                 // Moto (?)
                 const SizedBox(height: 16),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 36.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
                   child: Text(
                     'Lawan Stunting,',
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                       fontWeight: FontWeight.bold,
                       color: MyColors.customBlack,
                       fontSize: 24,
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 36.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
                   child: Text(
                     'Ciptakan Generasi Sehat',
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                       fontWeight: FontWeight.bold,
                       color: MyColors.customBlack,
                       fontSize: 24,
@@ -50,11 +51,11 @@ class IntroductionPage extends StatelessWidget {
 
                 // Deskripsi
                 const SizedBox(height: 16),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 36.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 36.0),
                   child: Text(
                     'Cari informasi stunting dan ketahui gejala stunting lebih awal',
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                       fontWeight: FontWeight.normal,
                       color: MyColors.customBlack,
                       fontSize: 14,
@@ -80,11 +81,11 @@ class IntroductionPage extends StatelessWidget {
                           // );
                           introductionPageLogic.keHalamanHome(context);
                         },
-                        child: const Padding(
-                          padding: EdgeInsets.all(11.0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(11.0),
                           child: Text(
                             'MARI MULAI',
-                            style: TextStyle(
+                            style: GoogleFonts.inter(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),

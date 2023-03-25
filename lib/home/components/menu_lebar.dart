@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuLebar extends StatelessWidget {
@@ -48,7 +49,7 @@ class MenuLebar extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
                       title,
-                      style: const TextStyle(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.w500,
                         fontSize: 20,
                       ),
@@ -61,7 +62,7 @@ class MenuLebar extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
                       description,
-                      style: const TextStyle(fontSize: 14),
+                      style: GoogleFonts.inter(fontSize: 14),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                     ),
@@ -87,7 +88,7 @@ class MenuLebar extends StatelessWidget {
                             child: Text(
                               titleBtn,
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: GoogleFonts.inter(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: MyColors.customWhite,

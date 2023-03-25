@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuKotak extends StatelessWidget {
@@ -38,7 +39,7 @@ class MenuKotak extends StatelessWidget {
               // Title
               Text(
                 title,
-                style: const TextStyle(
+                style: GoogleFonts.inter(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
                 ),

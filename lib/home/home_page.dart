@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/home/components/menu_kotak.dart';
 import 'package:startertemplate/home/components/menu_lebar.dart';
 import 'package:startertemplate/utils/my_color.dart';
@@ -34,13 +35,13 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 32),
 
                 // Ucapan selamat datang
-                const Text(
+                Text(
                   'Selamat Datang',
-                  style: TextStyle(fontSize: 14),
+                  style: GoogleFonts.inter(fontSize: 14),
                 ),
-                const Text(
+                Text(
                   'Emely Soehat',
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
@@ -76,13 +77,6 @@ class HomePage extends StatelessWidget {
 
                 // Menu makanan dan kalkulator
                 const SizedBox(height: 16),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: const [
-                //     MenuKotak(),
-                //     MenuKotak(),
-                //   ],
-                // ),
 
                 GridView(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

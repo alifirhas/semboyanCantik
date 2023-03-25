@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:startertemplate/auth/login/login_page.dart';
+import 'package:startertemplate/auth/logout/logout_logic.dart';
 import 'package:startertemplate/pages/setting_page.dart';
 import '../pages/about_page.dart';
 
@@ -23,22 +23,9 @@ so you include only the absolutely necessary pages and functionality to your app
 */
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({super.key});
+  MyDrawer({super.key});
 
-  // method to log user out
-  void logUserOut(BuildContext context) {
-    // pop drawer
-    Navigator.pop(context);
-    // pop app
-    Navigator.pop(context);
-    // go back to login page
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LoginPage(),
-      ),
-    );
-  }
+  final logoutLogic = LogoutLogic();
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +36,9 @@ class MyDrawer extends StatelessWidget {
           // Drawer header
           const DrawerHeader(
             child: Center(
-              child: Icon(
-                Icons.phone_iphone_rounded,
-                size: 64,
+              child: CircleAvatar(
+                backgroundImage: AssetImage('lib/images/avatar.jpg'),
+                radius: 48,
               ),
             ),
           ),
@@ -109,7 +96,7 @@ class MyDrawer extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: ListTile(
               leading: const Icon(Icons.logout),
-              onTap: () => logUserOut(context),
+              onTap: () => logoutLogic.logUserOut(context),
               title: Text(
                 "L O G O U T",
                 style: TextStyle(color: Colors.grey[700]),

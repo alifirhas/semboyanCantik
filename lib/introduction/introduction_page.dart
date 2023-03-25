@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startertemplate/introduction/introduction_page_logic.dart';
-import 'package:startertemplate/utils/colors.dart';
+import 'package:startertemplate/utils/my_color.dart';
 
 class IntroductionPage extends StatelessWidget {
   IntroductionPage({super.key});
@@ -24,7 +24,7 @@ class IntroductionPage extends StatelessWidget {
                 ),
 
                 // Moto (?)
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 36.0),
                   child: Text(

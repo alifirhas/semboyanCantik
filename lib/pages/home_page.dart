@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:startertemplate/utils/colors.dart';
+import 'package:startertemplate/utils/my_color.dart';
 
 /*
 

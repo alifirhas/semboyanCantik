@@ -23,7 +23,10 @@ class MyBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 16,
+      ),
       child: GNav(
         color: Colors.white,
         activeColor: Colors.white,
@@ -35,10 +38,6 @@ class MyBottomNavBar extends StatelessWidget {
           GButton(
             icon: Icons.home,
             text: 'Home',
-          ),
-          GButton(
-            icon: Icons.food_bank,
-            text: 'Makanan',
           ),
           GButton(
             icon: Icons.person,

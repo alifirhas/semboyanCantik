@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:startertemplate/artikel/artikel_page.dart';
 import 'package:startertemplate/home/components/menu_kotak.dart';
 import 'package:startertemplate/home/components/menu_lebar.dart';
 import 'package:startertemplate/utils/my_color.dart';
@@ -59,7 +60,13 @@ class HomePage extends StatelessWidget {
                   description: 'Dapatkan informasi seputar stunting balita',
                   titleBtn: 'Mari Lihat',
                   onTapBtn: () {
-                    debugPrint('informasi');
+                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ArtikelPage(),
+                      ),
+                    );
                   },
                 ),
 
@@ -71,7 +78,13 @@ class HomePage extends StatelessWidget {
                   description: 'Cegah dan ketahui penyebab stunting',
                   titleBtn: 'Mari Lihat',
                   onTapBtn: () {
-                    debugPrint('penyebab');
+                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ArtikelPage(),
+                      ),
+                    );
                   },
                 ),
 

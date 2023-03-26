@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:startertemplate/artikel/artikel_page_logic.dart';
-import 'package:startertemplate/artikel/components/artikel_besar.dart';
-import 'package:startertemplate/artikel/components/artikel_kecil.dart';
+import 'package:startertemplate/artikel/artikel/artikel_page_logic.dart';
+import 'package:startertemplate/artikel/artikel/components/artikel_besar.dart';
+import 'package:startertemplate/artikel/artikel/components/artikel_kecil.dart';
+import 'package:startertemplate/artikel/artikel_detail/artikel_detail_page.dart';
 import 'package:startertemplate/data/artikel_repository.dart';
 import 'package:startertemplate/models/artikel_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
@@ -155,6 +156,21 @@ class _ArtikelPageState extends State<ArtikelPage> {
                         cardOnTap: () {
                           debugPrint(
                               'Ke artikel-${artikelPopuler.elementAt(index).id} detail');
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ArtikelDetailPage(
+                                id: artikelItem.id,
+                                title: artikelItem.title,
+                                imgPath: artikelItem.imgPath,
+                                viewCount: artikelItem.viewCount,
+                                createdAt: formatter.format(DateTime.parse(
+                                    artikelItem.createdAt.toString())),
+                                content: artikelItem.content,
+                              ),
+                            ),
+                          );
                         },
                       );
                     },
@@ -193,6 +209,21 @@ class _ArtikelPageState extends State<ArtikelPage> {
                           DateTime.parse(artikelItem.createdAt.toString())),
                       cardOnTap: () {
                         debugPrint('Ke artikel-${artikelItem.id} detail');
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ArtikelDetailPage(
+                              id: artikelItem.id,
+                              title: artikelItem.title,
+                              imgPath: artikelItem.imgPath,
+                              viewCount: artikelItem.viewCount,
+                              createdAt: formatter.format(DateTime.parse(
+                                  artikelItem.createdAt.toString())),
+                              content: artikelItem.content,
+                            ),
+                          ),
+                        );
                       },
                     );
                   },

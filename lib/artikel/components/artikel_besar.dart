@@ -3,14 +3,27 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class ArtikelBesar extends StatelessWidget {
-  const ArtikelBesar({super.key});
+  final String id;
+  final String title;
+  final String imgPath;
+  final String viewCount;
+  final String createdAt;
+  final Function()? cardOnTap;
+
+  const ArtikelBesar({
+    super.key,
+    required this.id,
+    required this.title,
+    required this.imgPath,
+    required this.viewCount,
+    required this.createdAt,
+    this.cardOnTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        debugPrint('Pergi ke halaman artikel detail');
-      },
+      onTap: cardOnTap,
       child: Container(
         width: 200,
         height: 250,
@@ -26,10 +39,10 @@ class ArtikelBesar extends StatelessWidget {
               child: Container(
                 height: 150,
                 // width: 100,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'lib/images/artikel/bayi.jpg',
+                      imgPath,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -43,12 +56,12 @@ class ArtikelBesar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   // view count
-                  Text('👀 128 views'),
+                  Text('👀 $viewCount views', style: GoogleFonts.inter()),
 
                   // tanggal post
-                  Text('2 hari lalu'),
+                  Text(createdAt.toString(), style: GoogleFonts.inter()),
                 ],
               ),
             ),
@@ -59,7 +72,7 @@ class ArtikelBesar extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
                 child: Text(
-                  'Judul Judul Judul Judul Judul Judul Judul Judul ',
+                  title,
                   style: GoogleFonts.inter(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

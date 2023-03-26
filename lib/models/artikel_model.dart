@@ -1,6 +1,7 @@
 enum ArtikelType { penyebab, informasi, blank }
 
 class ArtikelModel {
+  final String id;
   final String title;
   final String imgPath;
   final String viewCount;
@@ -9,6 +10,7 @@ class ArtikelModel {
   final ArtikelType type;
 
   ArtikelModel({
+    required this.id,
     required this.title,
     required this.imgPath,
     required this.viewCount,

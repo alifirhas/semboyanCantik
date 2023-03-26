@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:startertemplate/artikel/artikel_page_logic.dart';
 import 'package:startertemplate/artikel/components/artikel_besar.dart';
 import 'package:startertemplate/artikel/components/artikel_kecil.dart';
+import 'package:startertemplate/data/artikel_repository.dart';
+import 'package:startertemplate/models/artikel_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class ArtikelPage extends StatefulWidget {
-  const ArtikelPage({super.key});
+  final ArtikelType tipeArtikel;
+
+  const ArtikelPage({super.key, required this.tipeArtikel});
 
   @override
   State<ArtikelPage> createState() => _ArtikelPageState();
 }
 
 class _ArtikelPageState extends State<ArtikelPage> {
+  // Dateformater
+  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+
   // text editing controllers
   final kolomCariController = TextEditingController();
 
   // scroll artikel controllers
   var jelajahiArtikelScrollController = ScrollController();
+
+  final artikelPageLogic = ArtikelPageLogic();
+
+  // Data artikel
+  List<ArtikelModel> listArtikel = artikelData;
+  List<ArtikelModel> artikelPopuler = [];
 
   @override
   void initState() {
@@ -24,6 +39,10 @@ class _ArtikelPageState extends State<ArtikelPage> {
 
     jelajahiArtikelScrollController = ScrollController()
       ..addListener(_addArtikel);
+    listArtikel =
+        artikelPageLogic.getArtikelByType(listArtikel, widget.tipeArtikel);
+    artikelPopuler = artikelPageLogic.artikelPopuler(listArtikel);
+    listArtikel = artikelPageLogic.artikelSortId(listArtikel);
   }
 
   @override
@@ -78,7 +97,7 @@ class _ArtikelPageState extends State<ArtikelPage> {
                           fillColor: MyColors.customWhite,
                           filled: true,
                           hintText: 'Cari Artikel...',
-                          hintStyle: TextStyle(
+                          hintStyle: GoogleFonts.inter(
                             color: Colors.grey[500],
                           ),
                         ),
@@ -122,9 +141,22 @@ class _ArtikelPageState extends State<ArtikelPage> {
                       return const SizedBox(width: 8);
                     },
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                    itemCount: artikelPopuler.length,
                     itemBuilder: (context, index) {
-                      return const ArtikelBesar();
+                      final artikelItem = artikelPopuler[index];
+
+                      return ArtikelBesar(
+                        id: artikelItem.id,
+                        title: artikelItem.title,
+                        imgPath: artikelItem.imgPath,
+                        viewCount: artikelItem.viewCount,
+                        createdAt: formatter.format(
+                            DateTime.parse(artikelItem.createdAt.toString())),
+                        cardOnTap: () {
+                          debugPrint(
+                              'Ke artikel-${artikelPopuler.elementAt(index).id} detail');
+                        },
+                      );
                     },
                   ),
                 ),
@@ -148,9 +180,21 @@ class _ArtikelPageState extends State<ArtikelPage> {
                     return const SizedBox(height: 8);
                   },
                   scrollDirection: Axis.vertical,
-                  itemCount: 5,
+                  itemCount: listArtikel.length,
                   itemBuilder: (context, index) {
-                    return const ArtikelKecil();
+                    final artikelItem = listArtikel[index];
+
+                    return ArtikelKecil(
+                      id: artikelItem.id,
+                      title: artikelItem.title,
+                      imgPath: artikelItem.imgPath,
+                      viewCount: artikelItem.viewCount,
+                      createdAt: formatter.format(
+                          DateTime.parse(artikelItem.createdAt.toString())),
+                      cardOnTap: () {
+                        debugPrint('Ke artikel-${artikelItem.id} detail');
+                      },
+                    );
                   },
                 ),
 

@@ -3,14 +3,27 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class ArtikelKecil extends StatelessWidget {
-  const ArtikelKecil({super.key});
+  final String id;
+  final String title;
+  final String imgPath;
+  final String viewCount;
+  final String createdAt;
+  final Function()? cardOnTap;
+
+  const ArtikelKecil({
+    super.key,
+    required this.id,
+    required this.title,
+    required this.imgPath,
+    required this.viewCount,
+    required this.createdAt,
+    this.cardOnTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        debugPrint('Pergi ke halaman artikel detail');
-      },
+      onTap: cardOnTap,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 135,
@@ -22,6 +35,7 @@ class ArtikelKecil extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // Column view count dan tanggal post
+            const SizedBox(height: 8),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,12 +45,12 @@ class ArtikelKecil extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         // view count
-                        Text('👀 128 views'),
+                        Text('👀 $viewCount views', style: GoogleFonts.inter()),
 
                         // tanggal post
-                        Text('2 hari lalu'),
+                        Text(createdAt.toString(), style: GoogleFonts.inter()),
                       ],
                     ),
                   ),
@@ -47,7 +61,7 @@ class ArtikelKecil extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: Text(
-                        'Judul Judul Judul Judul Judul Judul Judul Judul',
+                        title,
                         style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
@@ -67,10 +81,10 @@ class ArtikelKecil extends StatelessWidget {
               child: Container(
                 height: 135,
                 width: 125,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'lib/images/artikel/bayi.jpg',
+                      imgPath,
                     ),
                     fit: BoxFit.cover,
                   ),

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/artikel/artikel_page.dart';
 import 'package:startertemplate/home/components/menu_kotak.dart';
 import 'package:startertemplate/home/components/menu_lebar.dart';
+import 'package:startertemplate/models/artikel_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class HomePage extends StatelessWidget {
@@ -64,7 +65,9 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ArtikelPage(),
+                        builder: (context) => const ArtikelPage(
+                          tipeArtikel: ArtikelType.informasi,
+                        ),
                       ),
                     );
                   },
@@ -82,7 +85,9 @@ class HomePage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ArtikelPage(),
+                        builder: (context) => const ArtikelPage(
+                          tipeArtikel: ArtikelType.penyebab,
+                        ),
                       ),
                     );
                   },

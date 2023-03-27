@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/artikel/artikel/artikel_page.dart';
 import 'package:startertemplate/home/components/menu_kotak.dart';
 import 'package:startertemplate/home/components/menu_lebar.dart';
+import 'package:startertemplate/menu_makanan/menu_makanan/menu_makanan_page.dart';
 import 'package:startertemplate/models/artikel_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
@@ -108,7 +109,12 @@ class HomePage extends StatelessWidget {
                       title: 'Menu Makanan Balita',
                       imgPath: 'lib/images/baby.png',
                       btnOnTap: () {
-                        debugPrint('Menu');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MenuMakananPage(),
+                          ),
+                        );
                       },
                     ),
                     MenuKotak(

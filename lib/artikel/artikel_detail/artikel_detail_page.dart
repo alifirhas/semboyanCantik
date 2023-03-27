@@ -23,27 +23,29 @@ class ArtikelDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: Stack(
-        children: [
-          // Gambar
-          SizedBox(
-            width: double.infinity,
-            child: Image.asset(imgPath),
-          ),
+    return Scaffold(
+      backgroundColor: MyColors.baseColor,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            // Gambar
+            SizedBox(
+              width: double.infinity,
+              child: Image.asset(imgPath),
+            ),
 
-          // Navigasi
-          topNavigation(context),
+            // Navigasi
+            topNavigation(context),
 
-          // Konten
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: scroll(),
-          ),
-        ],
+            // Konten
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: scroll(),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   topNavigation(BuildContext context) {

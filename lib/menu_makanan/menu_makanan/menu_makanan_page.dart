@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/data/makanan_repository.dart';
 import 'package:startertemplate/menu_makanan/menu_makanan/components/menu_item.dart';
+import 'package:startertemplate/menu_makanan/menu_makanan_detail/menu_makanan_detail_page.dart';
 import 'package:startertemplate/models/makanan_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
@@ -16,7 +17,7 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
   // text editing controllers
   final kolomCariController = TextEditingController();
 
-  // scroll artikel controllers
+  // scroll menu controllers
   var listMenuScrollController = ScrollController();
 
   // Data makanan
@@ -78,7 +79,7 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
                         ),
                         fillColor: MyColors.customWhite,
                         filled: true,
-                        hintText: 'Cari Artikel...',
+                        hintText: 'Cari Menu Makanan...',
                         hintStyle: GoogleFonts.inter(
                           color: Colors.grey[500],
                         ),
@@ -103,6 +104,19 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
                       kandunganGizi: menuItem.kandunganGizi,
                       itemOnTap: () {
                         debugPrint('Pergi ke halaman menu-${menuItem.id}');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MenuMakananDetailPage(
+                              id: menuItem.id,
+                              judul: menuItem.judul,
+                              imgPath: menuItem.imgPath,
+                              kandunganGizi: menuItem.kandunganGizi,
+                              bahanMakanan: menuItem.bahanMakanan,
+                              resep: menuItem.resep,
+                            ),
+                          ),
+                        );
                       },
                     );
                   },

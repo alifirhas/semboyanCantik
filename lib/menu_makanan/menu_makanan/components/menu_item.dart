@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:startertemplate/models/makanan_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuItem extends StatelessWidget {
-  const MenuItem({super.key});
+  final String id;
+  final String judul;
+  final String imgPath;
+  final KandunganGizi kandunganGizi;
+  final Function()? itemOnTap;
+
+  const MenuItem({
+    super.key,
+    required this.id,
+    required this.judul,
+    required this.imgPath,
+    required this.kandunganGizi,
+    required this.itemOnTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: itemOnTap,
       child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
         width: MediaQuery.of(context).size.width,
         height: 150,
         decoration: BoxDecoration(
@@ -25,10 +40,10 @@ class MenuItem extends StatelessWidget {
               child: Container(
                 height: 150,
                 width: 125,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      'lib/images/makanan/makanan1.jpg',
+                      imgPath,
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -49,7 +64,7 @@ class MenuItem extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: Text(
-                        'Cheesy Baked Potato and Broccoli',
+                        judul,
                         style: GoogleFonts.inter(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
@@ -65,7 +80,7 @@ class MenuItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Text(
-                      'Protein xxx g',
+                      'Protein ${kandunganGizi.protein} g',
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         color: Colors.grey.shade600,
@@ -78,7 +93,7 @@ class MenuItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Text(
-                      'Lemak xxx g',
+                      'Lemak ${kandunganGizi.lemak} g',
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         color: Colors.grey.shade600,
@@ -91,7 +106,7 @@ class MenuItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Text(
-                      'Karbohidrat xxx g',
+                      'Karbohidrat ${kandunganGizi.karbo} g',
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         color: Colors.grey.shade600,
@@ -109,7 +124,7 @@ class MenuItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          '🔥 xxx kcal',
+                          '🔥 ${kandunganGizi.energi} kcal',
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             color: Colors.red,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:startertemplate/data/makanan_repository.dart';
 import 'package:startertemplate/menu_makanan/menu_makanan/components/menu_item.dart';
+import 'package:startertemplate/models/makanan_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuMakananPage extends StatefulWidget {
@@ -16,6 +18,9 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
 
   // scroll artikel controllers
   var listMenuScrollController = ScrollController();
+
+  // Data makanan
+  List<MakananModel> listMakanan = makananData;
 
   @override
   void initState() {
@@ -86,21 +91,27 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
               // List menu makanan
               const SizedBox(height: 24),
               Expanded(
-                child: ListView.separated(
+                child: ListView.builder(
                   shrinkWrap: true,
                   controller: listMenuScrollController,
-                  itemBuilder: (index, context) {
-                    return const MenuItem();
+                  itemBuilder: (context, index) {
+                    final menuItem = listMakanan[index];
+                    return MenuItem(
+                      id: menuItem.id,
+                      judul: menuItem.judul,
+                      imgPath: menuItem.imgPath,
+                      kandunganGizi: menuItem.kandunganGizi,
+                      itemOnTap: () {
+                        debugPrint('Pergi ke halaman menu-${menuItem.id}');
+                      },
+                    );
                   },
-                  separatorBuilder: (index, context) {
-                    return const SizedBox(height: 8);
-                  },
-                  itemCount: 10,
+                  itemCount: listMakanan.length,
                 ),
               ),
 
               // Jarak kosong
-              const SizedBox(height: 24),
+              // const SizedBox(height: 24),
             ],
           ),
         ),

@@ -5,6 +5,7 @@ import 'package:startertemplate/home/components/menu_kotak.dart';
 import 'package:startertemplate/home/components/menu_lebar.dart';
 import 'package:startertemplate/menu_makanan/menu_makanan/menu_makanan_page.dart';
 import 'package:startertemplate/models/artikel_model.dart';
+import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class HomePage extends StatelessWidget {
@@ -121,7 +122,13 @@ class HomePage extends StatelessWidget {
                       title: 'Periksa Stunting',
                       imgPath: 'lib/images/Calculator_Outline.png',
                       btnOnTap: () {
-                        debugPrint('kalkulator');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const PerhitunganStuntingPage(),
+                          ),
+                        );
                       },
                     ),
                   ],

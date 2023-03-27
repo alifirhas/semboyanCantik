@@ -8,4 +8,5 @@ class MyColors {
   static const Color customBlack = Color.fromARGB(255, 50, 48, 58);
   static const Color customGrey = Color.fromARGB(255, 217, 217, 217);
   static const Color baseColor = Color.fromARGB(255, 245, 245, 245);
+  static const Color basePurple = Color.fromARGB(255, 238, 233, 246);
 }

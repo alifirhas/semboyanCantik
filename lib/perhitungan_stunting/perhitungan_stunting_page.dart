@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:select_form_field/select_form_field.dart';
 import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page_logic.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
@@ -33,6 +34,20 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
   // hasil
   String hasilAngka = '0';
   String hasilDeskripsi = '';
+
+  // Gender item
+  final List<Map<String, dynamic>> _genderItems = [
+    {
+      'value': 'boy',
+      'label': 'Laki-laki',
+      'textStyle': GoogleFonts.inter(color: MyColors.customBlack),
+    },
+    {
+      'value': 'girl',
+      'label': 'Perempuan',
+      'textStyle': GoogleFonts.inter(color: MyColors.customBlack),
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -249,6 +264,35 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                         }
                         return null;
                       },
+                    ),
+                    const SizedBox(height: 8),
+
+                    // Gender textfield
+                    SelectFormField(
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade400),
+                        ),
+                        fillColor: MyColors.customWhite,
+                        filled: true,
+                        hintText: 'Jenis Kelamin',
+                        hintStyle: TextStyle(
+                          color: Colors.grey[500],
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Tolong isi Jenis Kelamin';
+                        }
+                        return null;
+                      },
+                      type: SelectFormFieldType.dropdown,
+                      items: _genderItems,
+                      onChanged: (val) => debugPrint(val),
+                      onSaved: (val) => debugPrint(val),
                     ),
                     const SizedBox(height: 8),
 

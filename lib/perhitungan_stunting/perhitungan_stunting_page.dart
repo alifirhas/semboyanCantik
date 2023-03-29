@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page_logic.dart';
@@ -17,6 +18,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
   final tahunTextController = TextEditingController();
   final bulanTextController = TextEditingController();
   final tinggiBadanTextController = TextEditingController();
+  final genderSelectController = TextEditingController();
 
   // Form key
   final _periksaStuntingFormKey = GlobalKey<FormState>();
@@ -158,6 +160,18 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                   children: [
                     // Input tahun dan bulan
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Umur balita pada tahun dan bulan',
+                          style: GoogleFonts.inter(
+                            color: Colors.grey.shade600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // Tahun textfield
@@ -186,6 +200,9 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                                 ),
                               ),
                             ),
+                            inputFormatters: <TextInputFormatter>[
+                              LengthLimitingTextInputFormatter(1),
+                            ],
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Tolong isi Umur Tahun';
@@ -195,6 +212,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                           ),
                         ),
                         const SizedBox(width: 8),
+
                         // Bulan textfield
                         Flexible(
                           child: TextFormField(
@@ -221,6 +239,9 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                                 ),
                               ),
                             ),
+                            inputFormatters: <TextInputFormatter>[
+                              LengthLimitingTextInputFormatter(2),
+                            ],
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Tolong isi Umur Bulan';
@@ -283,6 +304,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                           color: Colors.grey[500],
                         ),
                       ),
+                      controller: genderSelectController,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Tolong isi Jenis Kelamin';
@@ -291,12 +313,13 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                       },
                       type: SelectFormFieldType.dropdown,
                       items: _genderItems,
-                      onChanged: (val) => debugPrint(val),
-                      onSaved: (val) => debugPrint(val),
+                      onChanged: (val) =>
+                          debugPrint(genderSelectController.text),
+                      onSaved: (val) => debugPrint(genderSelectController.text),
                     ),
                     const SizedBox(height: 8),
 
-                    // Log in button
+                    // HItung button
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -305,13 +328,19 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                             final form = _periksaStuntingFormKey.currentState;
 
                             if (form!.validate()) {
+                              double zScore =
+                                  perhitunganStuntingPageLogic.hitungZScore(
+                                double.parse(tinggiBadanTextController.text),
+                                int.parse(tahunTextController.text),
+                                int.parse(bulanTextController.text),
+                                genderSelectController.text,
+                              );
+
                               setState(() {
-                                // Hitung dan masukkan hasil
-                                hasilAngka = perhitunganStuntingPageLogic
-                                    .hitungZScore()
-                                    .toString();
+                                // masukkan hasil
                                 hasilDeskripsi = perhitunganStuntingPageLogic
-                                    .transkripsiStatusZScore();
+                                    .transkripsiStatusZScore(zScore);
+                                hasilAngka = zScore.toStringAsFixed(2);
 
                                 // Perlihatkan hasil
                                 balitaCerdasVisible = false;

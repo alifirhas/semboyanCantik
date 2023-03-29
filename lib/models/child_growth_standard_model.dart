@@ -1,5 +1,5 @@
 class ChildGrowthStandardModel {
-  final int week;
+  final int month;
   final double l;
   final double m;
   final double s;
@@ -13,7 +13,7 @@ class ChildGrowthStandardModel {
   final double sd3;
 
   ChildGrowthStandardModel({
-    required this.week,
+    required this.month,
     required this.l,
     required this.m,
     required this.s,
@@ -25,5 +25,15 @@ class ChildGrowthStandardModel {
     required this.sd1,
     required this.sd2,
     required this.sd3,
+  });
+}
+
+class ChildGrowthStandardContainer {
+  final String gender;
+  List<ChildGrowthStandardModel> data;
+
+  ChildGrowthStandardContainer({
+    required this.gender,
+    required this.data,
   });
 }

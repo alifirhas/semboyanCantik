@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      // this is bringing us to the LoginPage first
+      // this is bringing us to the SplashPage first
       home: SplashPage(),
     );
   }

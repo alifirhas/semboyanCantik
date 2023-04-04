@@ -19,12 +19,12 @@ class MenuKotak extends StatelessWidget {
     return InkWell(
       onTap: btnOnTap,
       child: Ink(
-        height: 200,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4),
-          color: MyColors.pink,
-        ),
-        child: Padding(
+        child: Container(
+          height: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: MyColors.purple10,
+          ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

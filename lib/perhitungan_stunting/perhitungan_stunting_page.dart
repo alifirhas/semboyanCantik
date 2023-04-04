@@ -66,23 +66,15 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: MyColors.customGrey,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back_ios,
-                        size: 24,
-                        color: MyColors.customBlack,
-                      ),
+                child: Ink(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: MyColors.customWhite,
+                      border: Border.all(color: MyColors.customGrey),
                     ),
+                    padding: const EdgeInsets.all(13),
+                    child: const Icon(Icons.arrow_back_ios_new_rounded),
                   ),
                 ),
               ),
@@ -352,14 +344,14 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                             }
                           },
                           child: Ink(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(9),
-                              color: MyColors.purple,
-                            ),
                             child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(9),
+                                color: MyColors.purple,
+                              ),
                               padding: const EdgeInsets.all(20),
                               child: Text(
-                                'Periksa Stunting',
+                                'PERIKSA STUNTING',
                                 style: GoogleFonts.inter(
                                   color: MyColors.customWhite,
                                   fontWeight: FontWeight.bold,

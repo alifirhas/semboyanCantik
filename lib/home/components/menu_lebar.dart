@@ -24,7 +24,7 @@ class MenuLebar extends StatelessWidget {
       height: 180,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: MyColors.purple10,
+        color: MyColors.pink,
       ),
       child: Row(
         children: [
@@ -79,11 +79,11 @@ class MenuLebar extends StatelessWidget {
                       child: InkWell(
                         onTap: onTapBtn,
                         child: Ink(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.0),
-                            color: MyColors.purple,
-                          ),
-                          child: Padding(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: MyColors.purple,
+                            ),
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
                               titleBtn,

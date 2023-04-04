@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
@@ -30,8 +31,12 @@ class ArtikelDetailPage extends StatelessWidget {
           children: [
             // Gambar
             SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
               width: double.infinity,
-              child: Image.asset(imgPath),
+              child: Image.asset(
+                imgPath,
+                fit: BoxFit.cover,
+              ),
             ),
 
             // Navigasi
@@ -58,23 +63,15 @@ class ArtikelDetailPage extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: MyColors.customGrey,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 24,
-                    color: MyColors.customBlack,
-                  ),
+            child: Ink(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: MyColors.customWhite,
+                  border: Border.all(color: MyColors.customGrey),
                 ),
+                padding: const EdgeInsets.all(13),
+                child: const Icon(Icons.arrow_back_ios_new_rounded),
               ),
             ),
           ),
@@ -87,22 +84,18 @@ class ArtikelDetailPage extends StatelessWidget {
                     context,
                   );
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: MyColors.customGrey,
-                  ),
-                  child: Padding(
+                child: Ink(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: MyColors.customWhite,
+                      border: Border.all(color: MyColors.customGrey),
+                    ),
                     padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.share_rounded,
-                        size: 24,
-                        color: MyColors.customBlack,
-                      ),
+                    child: const Icon(
+                      Icons.share_rounded,
+                      size: 24,
+                      color: MyColors.customBlack,
                     ),
                   ),
                 ),
@@ -118,14 +111,12 @@ class ArtikelDetailPage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: MyColors.customGrey,
+                    color: MyColors.customWhite,
+                    border: Border.all(color: MyColors.customGrey),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  child: Ink(
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
+                      padding: const EdgeInsets.all(12.0),
                       child: const Icon(
                         Icons.bookmark,
                         size: 24,
@@ -211,11 +202,20 @@ class ArtikelDetailPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Content
-                Text(
-                  content,
-                  style: GoogleFonts.inter(),
-                  textAlign: TextAlign.justify,
+                // Markdown content
+                MarkdownBody(
+                  selectable: true,
+                  data: content,
+                  styleSheet: MarkdownStyleSheet(
+                    p: GoogleFonts.inter(),
+                    h1: GoogleFonts.inter(),
+                    h2: GoogleFonts.inter(),
+                    h3: GoogleFonts.inter(),
+                    h4: GoogleFonts.inter(),
+                    h5: GoogleFonts.inter(),
+                    h6: GoogleFonts.inter(),
+                    textAlign: WrapAlignment.spaceEvenly,
+                  ),
                 ),
               ],
             ),

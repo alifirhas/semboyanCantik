@@ -31,8 +31,12 @@ class MenuMakananDetailPage extends StatelessWidget {
           children: [
             // Gambar
             SizedBox(
+              height: MediaQuery.of(context).size.height * 0.6,
               width: double.infinity,
-              child: Image.asset(imgPath),
+              child: Image.asset(
+                imgPath,
+                fit: BoxFit.cover,
+              ),
             ),
 
             // Navigasi
@@ -60,23 +64,15 @@ class MenuMakananDetailPage extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: MyColors.customGrey,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 24,
-                    color: MyColors.customBlack,
-                  ),
+            child: Ink(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: MyColors.customWhite,
+                  border: Border.all(color: MyColors.customGrey),
                 ),
+                padding: const EdgeInsets.all(13),
+                child: const Icon(Icons.arrow_back_ios_new_rounded),
               ),
             ),
           ),
@@ -92,22 +88,18 @@ class MenuMakananDetailPage extends StatelessWidget {
                     context,
                   );
                 },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: MyColors.customGrey,
-                  ),
-                  child: Padding(
+                child: Ink(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: MyColors.customWhite,
+                      border: Border.all(color: MyColors.customGrey),
+                    ),
                     padding: const EdgeInsets.all(12.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: const Icon(
-                        Icons.share_rounded,
-                        size: 24,
-                        color: MyColors.customBlack,
-                      ),
+                    child: const Icon(
+                      Icons.share_rounded,
+                      size: 24,
+                      color: MyColors.customBlack,
                     ),
                   ),
                 ),
@@ -125,14 +117,12 @@ class MenuMakananDetailPage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: MyColors.customGrey,
+                    color: MyColors.customWhite,
+                    border: Border.all(color: MyColors.customGrey),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  child: Ink(
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
+                      padding: const EdgeInsets.all(12.0),
                       child: const Icon(
                         Icons.bookmark,
                         size: 24,

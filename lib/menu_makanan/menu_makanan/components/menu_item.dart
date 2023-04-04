@@ -117,6 +117,7 @@ class MenuItem extends StatelessWidget {
                   ),
 
                   // Energi di pojok kanan
+                  // const Spacer(),
                   const SizedBox(height: 8),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),

@@ -51,14 +51,14 @@ class _ArtikelPageState extends State<ArtikelPage> {
     return Scaffold(
       backgroundColor: MyColors.baseColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Kolom pencarian dan Tombol kembali
-                Row(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Kolom pencarian dan Tombol kembali
+              Padding(
+                padding: const EdgeInsets.only(top: 24, right: 24, left: 24),
+                child: Row(
                   children: [
                     // Tombol kembali
                     InkWell(
@@ -106,10 +106,13 @@ class _ArtikelPageState extends State<ArtikelPage> {
                     ),
                   ],
                 ),
+              ),
 
-                // Header Artikel populer
-                const SizedBox(height: 24),
-                Row(
+              // Header Artikel populer
+              const SizedBox(height: 24),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // Judul
@@ -131,10 +134,13 @@ class _ArtikelPageState extends State<ArtikelPage> {
                     ),
                   ],
                 ),
+              ),
 
-                // List artikel populer
-                const SizedBox(height: 16),
-                SizedBox(
+              // List artikel populer
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.only(left: 24),
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 250,
                   child: ListView.separated(
@@ -176,20 +182,26 @@ class _ArtikelPageState extends State<ArtikelPage> {
                     },
                   ),
                 ),
+              ),
 
-                // Header Jelajahi artikel lain
-                const SizedBox(height: 16),
-                Text(
+              // Header Jelajahi artikel lain
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Text(
                   'Jelajahi',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
                 ),
+              ),
 
-                // List jelajahi artikel lain
-                const SizedBox(height: 16),
-                ListView.separated(
+              // List jelajahi artikel lain
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: ListView.separated(
                   controller: jelajahiArtikelScrollController,
                   shrinkWrap: true,
                   separatorBuilder: (context, index) {
@@ -228,11 +240,11 @@ class _ArtikelPageState extends State<ArtikelPage> {
                     );
                   },
                 ),
+              ),
 
-                // Jarak kosong
-                const SizedBox(height: 24),
-              ],
-            ),
+              // Jarak kosong
+              const SizedBox(height: 24),
+            ],
           ),
         ),
       ),

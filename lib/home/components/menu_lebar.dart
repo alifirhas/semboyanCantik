@@ -21,6 +21,7 @@ class MenuLebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(4),
       height: 180,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
@@ -32,7 +33,7 @@ class MenuLebar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: 113,
+              width: 113,
               child: Image.asset(imgPath),
             ),
           ),
@@ -99,7 +100,7 @@ class MenuLebar extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

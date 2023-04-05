@@ -35,12 +35,12 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
     return Scaffold(
       backgroundColor: MyColors.baseColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-          child: Column(
-            children: [
-              // Kolom pencarian dan tombol kembali
-              Row(
+        child: Column(
+          children: [
+            // Kolom pencarian dan tombol kembali
+            Padding(
+              padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
+              child: Row(
                 children: [
                   // Tombol kembali
                   InkWell(
@@ -88,16 +88,19 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
                   ),
                 ],
               ),
+            ),
 
-              // List menu makanan
-              const SizedBox(height: 24),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  controller: listMenuScrollController,
-                  itemBuilder: (context, index) {
-                    final menuItem = listMakanan[index];
-                    return MenuItem(
+            // List menu makanan
+            const SizedBox(height: 24),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                controller: listMenuScrollController,
+                itemBuilder: (context, index) {
+                  final menuItem = listMakanan[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: MenuItem(
                       id: menuItem.id,
                       judul: menuItem.judul,
                       imgPath: menuItem.imgPath,
@@ -118,16 +121,16 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
                           ),
                         );
                       },
-                    );
-                  },
-                  itemCount: listMakanan.length,
-                ),
+                    ),
+                  );
+                },
+                itemCount: listMakanan.length,
               ),
+            ),
 
-              // Jarak kosong
-              // const SizedBox(height: 24),
-            ],
-          ),
+            // Jarak kosong
+            // const SizedBox(height: 24),
+          ],
         ),
       ),
     );

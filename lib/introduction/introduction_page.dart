@@ -84,10 +84,11 @@ class IntroductionPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(11.0),
                           child: Text(
-                            'MARI MULAI',
+                            'Mari Mulai',
                             style: GoogleFonts.inter(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              color: MyColors.customWhite,
                             ),
                           ),
                         ),

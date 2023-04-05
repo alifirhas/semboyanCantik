@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:startertemplate/auth/login/login_page.dart';
 import 'package:startertemplate/auth/register/register_page_logic.dart';
 import 'package:startertemplate/components/my_square_tile.dart';
 import 'components/my_register_button.dart';
@@ -227,11 +228,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     SquareTile(
                       imagePath: 'lib/images/login.png',
                       onTap: () {
-                        // Navigator.pop(context);
+                        Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const RegisterPage(),
+                            builder: (context) => const LoginPage(),
                           ),
                         );
                         debugPrint('Register');

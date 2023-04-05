@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 // logo
                 Image.asset(
-                  'lib/images/login.png',
+                  'lib/images/logo.png',
                   height: 100,
                 ),
 
@@ -185,7 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                               );
                             } else {
                               GFToast.showToast(
-                                'Berhasil Log In',
+                                'Hai Baduta',
                                 context,
                               );
                               loginPageLogic.signUserIn(context);

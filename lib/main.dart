@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startertemplate/splash/splash_page.dart';
+import 'package:startertemplate/utils/my_color.dart';
 
 /*
 
@@ -19,10 +20,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: MyColors.pinkMaterial,
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Colors.black,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       // this is bringing us to the SplashPage first
-      home: SplashPage(),
+      home: const SplashPage(),
     );
   }
 }

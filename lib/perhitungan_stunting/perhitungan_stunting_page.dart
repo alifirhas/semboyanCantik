@@ -24,7 +24,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
   final _periksaStuntingFormKey = GlobalKey<FormState>();
 
   // visibility
-  bool balitaCerdasVisible = true;
+  bool badutaCerdasVisible = true;
   bool hasilVisible = false;
   bool periksaStuntingVisible = true;
   bool hasilAngkaVisible = false;
@@ -83,9 +83,9 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
               // Nanti berubah menjadi hasil
               const SizedBox(height: 120),
               Visibility(
-                visible: balitaCerdasVisible,
+                visible: badutaCerdasVisible,
                 child: Text(
-                  'Balita Cerdas',
+                  'Semboyan Cantik',
                   style: GoogleFonts.inter(
                     fontSize: 20,
                     color: Colors.grey.shade600,
@@ -155,7 +155,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Umur balita pada tahun dan bulan',
+                          'Umur baduta pada tahun dan bulan',
                           style: GoogleFonts.inter(
                             color: Colors.grey.shade600,
                           ),
@@ -335,7 +335,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                                 hasilAngka = zScore.toStringAsFixed(2);
 
                                 // Perlihatkan hasil
-                                balitaCerdasVisible = false;
+                                badutaCerdasVisible = false;
                                 hasilVisible = true;
                                 periksaStuntingVisible = false;
                                 hasilAngkaVisible = true;

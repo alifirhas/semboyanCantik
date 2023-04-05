@@ -19,7 +19,7 @@ class PerhitunganStuntingPageLogic {
     if (umur > 24) {
       return hasil = {
         "status": false,
-        "message": "Umur balita sudah melebihi dua tahun",
+        "message": "Umur baduta sudah melebihi dua tahun",
       };
     }
 
@@ -27,22 +27,22 @@ class PerhitunganStuntingPageLogic {
     if (convertUmurKeBulan(umurTahun, umurBulan) <= 24) {
       // Akses data child growth standard
       List<ChildGrowthStandardContainer> cdsData = childGrowthStandard;
-      List<ChildGrowthStandardModel> cdsBalita;
+      List<ChildGrowthStandardModel> cdsBaduta;
 
       // Ambil child growth berdasarkan gender
       if (gender == 'boy') {
-        cdsBalita =
+        cdsBaduta =
             cdsData[0].data.where((element) => element.month == umur).toList();
       } else {
-        cdsBalita =
+        cdsBaduta =
             cdsData[0].data.where((element) => element.month == umur).toList();
       }
 
       // Validasi data ada atau tidak
-      if (cdsBalita.isEmpty) {
+      if (cdsBaduta.isEmpty) {
         return hasil = {
           "status": false,
-          "message": "Umur balita masih belum dicakup oleh sistem",
+          "message": "Umur baduta masih belum dicakup oleh sistem",
         };
       }
     }
@@ -66,7 +66,7 @@ class PerhitunganStuntingPageLogic {
     int umur = 0;
     double median = 0;
     double standarDeviasi = 0;
-    ChildGrowthStandardModel cdsBalita = ChildGrowthStandardModel(
+    ChildGrowthStandardModel cdsBaduta = ChildGrowthStandardModel(
       month: 0,
       l: 0,
       m: 0,
@@ -107,13 +107,13 @@ class PerhitunganStuntingPageLogic {
         .toList();
 
     if (cdsDataTemp.isNotEmpty) {
-      cdsBalita =
+      cdsBaduta =
           cdsData[0].data.where((element) => element.month == umur).first;
     }
 
     // Ambil child growth standard median dan Standar Deviasi
-    median = cdsBalita.m;
-    standarDeviasi = cdsBalita.sd;
+    median = cdsBaduta.m;
+    standarDeviasi = cdsBaduta.sd;
 
     zScore = (tinggiBadan - median) / standarDeviasi;
     debugPrint("median $median");
@@ -128,19 +128,19 @@ class PerhitunganStuntingPageLogic {
 
     if (zScore.isInfinite) {
       hasil =
-          'Pertumbuhan balita sungguh luar biasa dan tak terhingga, melebihi batasan hitungan teknologi kita, mereka adalah mukjizat kehidupan yang sungguh mengagumkan!';
+          'Pertumbuhan baduta sungguh luar biasa dan tak terhingga, melebihi batasan hitungan teknologi kita, mereka adalah mukjizat kehidupan yang sungguh mengagumkan!';
     } else if (zScore < -3) {
       hasil =
-          "Balita memiliki gangguan pertumbuhan yang parah atau stunting berat";
+          "Baduta memiliki gangguan pertumbuhan yang parah atau stunting berat";
     } else if (zScore >= -3 && zScore < -2) {
-      hasil = 'Balita memiliki gangguan pertumbuhan atau stunting';
+      hasil = 'Baduta memiliki gangguan pertumbuhan atau stunting';
     } else if (zScore >= -2 && zScore < 2) {
-      hasil = 'Balita memiliki pertumbuhan normal atau sehat';
+      hasil = 'Baduta memiliki pertumbuhan normal atau sehat';
     } else if (zScore >= 2 && zScore < 3) {
       hasil =
-          'Balita memiliki pertumbuhan lebih tinggi dari rata-rata atau di atas normal';
+          'Baduta memiliki pertumbuhan lebih tinggi dari rata-rata atau di atas normal';
     } else if (zScore >= 3) {
-      hasil = 'Balita memiliki pertumbuhan yang sangat tinggi atau gigantisme';
+      hasil = 'Baduta memiliki pertumbuhan yang sangat tinggi atau gigantisme';
     }
 
     return hasil;

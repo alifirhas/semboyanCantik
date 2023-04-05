@@ -16,128 +16,121 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: MyColors.customWhite,
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.only(top: 24.0, left: 24, right: 24),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Avatar
-                InkWell(
-                  onTap: () => Scaffold.of(context).openDrawer(),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: MyColors.customWhite,
-                    ),
-                    child: const CircleAvatar(
-                      backgroundImage: AssetImage('lib/images/avatar.jpg'),
-                      radius: 32,
-                    ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Avatar
+              InkWell(
+                onTap: () => Scaffold.of(context).openDrawer(),
+                child: Ink(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: MyColors.customWhite,
+                  ),
+                  child: const CircleAvatar(
+                    backgroundImage: AssetImage('lib/images/avatar.jpg'),
+                    radius: 32,
                   ),
                 ),
-                const SizedBox(height: 32),
+              ),
+              const SizedBox(height: 32),
 
-                // Ucapan selamat datang
-                Text(
-                  'Selamat Datang',
-                  style: GoogleFonts.inter(fontSize: 14),
+              // Ucapan hai
+              Text(
+                'Hai Baduta',
+                style: GoogleFonts.inter(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
                 ),
-                Text(
-                  'Emely Soehat',
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
-                ),
+              ),
 
-                // Divider
-                const SizedBox(height: 24),
-                const Divider(),
-                const SizedBox(height: 24),
+              // Divider
+              const SizedBox(height: 24),
+              const Divider(),
+              const SizedBox(height: 24),
 
-                // Menu info stunting balita
-                MenuLebar(
-                  imgPath: 'lib/images/information_carousel_flatline.png',
-                  title: 'Info Stunting Balita',
-                  description: 'Dapatkan informasi seputar stunting balita',
-                  titleBtn: 'Mari Lihat',
-                  onTapBtn: () {
-                    // Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ArtikelPage(
-                          tipeArtikel: ArtikelType.informasi,
-                        ),
+              // Menu info stunting baduta
+              MenuLebar(
+                imgPath: 'lib/images/information_carousel_flatline.png',
+                title: 'Info Stunting Baduta',
+                description: 'Dapatkan informasi seputar stunting baduta',
+                titleBtn: 'Mari Lihat',
+                onTapBtn: () {
+                  // Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ArtikelPage(
+                        tipeArtikel: ArtikelType.informasi,
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
+              ),
 
-                // Menu info penyebab dan pencegahan
-                const SizedBox(height: 16),
-                MenuLebar(
-                  imgPath: 'lib/images/doctor_flatline.png',
-                  title: 'Penyebab & Pencegahan Stunting',
-                  description: 'Cegah dan ketahui penyebab stunting',
-                  titleBtn: 'Mari Lihat',
-                  onTapBtn: () {
-                    // Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ArtikelPage(
-                          tipeArtikel: ArtikelType.penyebab,
-                        ),
+              // Menu info penyebab dan pencegahan
+              const SizedBox(height: 16),
+              MenuLebar(
+                imgPath: 'lib/images/doctor_flatline.png',
+                title: 'Penyebab & Pencegahan Stunting',
+                description: 'Cegah dan ketahui penyebab stunting',
+                titleBtn: 'Mari Lihat',
+                onTapBtn: () {
+                  // Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ArtikelPage(
+                        tipeArtikel: ArtikelType.penyebab,
                       ),
-                    );
-                  },
+                    ),
+                  );
+                },
+              ),
+
+              // Menu makanan dan kalkulator
+              const SizedBox(height: 16),
+
+              GridView(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8,
                 ),
-
-                // Menu makanan dan kalkulator
-                const SizedBox(height: 16),
-
-                GridView(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 8,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  MenuKotak(
+                    title: 'Menu Makanan Baduta',
+                    imgPath: 'lib/images/baby.png',
+                    btnOnTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MenuMakananPage(),
+                        ),
+                      );
+                    },
                   ),
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  children: [
-                    MenuKotak(
-                      title: 'Menu Makanan Balita',
-                      imgPath: 'lib/images/baby.png',
-                      btnOnTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MenuMakananPage(),
-                          ),
-                        );
-                      },
-                    ),
-                    MenuKotak(
-                      title: 'Periksa Stunting',
-                      imgPath: 'lib/images/Calculator_Outline.png',
-                      btnOnTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const PerhitunganStuntingPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                  MenuKotak(
+                    title: 'Periksa Stunting',
+                    imgPath: 'lib/images/Calculator_Outline.png',
+                    btnOnTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PerhitunganStuntingPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
 
-                // Jarak kosong
-                const SizedBox(height: 24),
-              ],
-            ),
+              // Jarak kosong
+              const SizedBox(height: 24),
+            ],
           ),
         ),
       ),

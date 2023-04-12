@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:startertemplate/models/makanan_model.dart';
+import 'package:startertemplate/models/kandungan_gizi_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuItem extends StatelessWidget {

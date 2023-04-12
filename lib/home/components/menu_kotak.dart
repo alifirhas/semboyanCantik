@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:startertemplate/utils/my_color.dart';
 
 class MenuKotak extends StatelessWidget {
   final String title;
+  final String? subtitle;
   final String imgPath;
+  final Color bgColor;
   final Function()? btnOnTap;
 
   const MenuKotak({
     super.key,
     required this.title,
+    this.subtitle,
     required this.imgPath,
+    required this.bgColor,
     this.btnOnTap,
   });
 
@@ -20,10 +23,10 @@ class MenuKotak extends StatelessWidget {
       onTap: btnOnTap,
       child: Ink(
         child: Container(
-          height: 200,
+          // height: 200,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: MyColors.purple10,
+            color: bgColor,
           ),
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -35,6 +38,7 @@ class MenuKotak extends StatelessWidget {
                 imgPath,
                 height: 65,
               ),
+              const SizedBox(height: 8),
 
               // Title
               Text(
@@ -42,6 +46,18 @@ class MenuKotak extends StatelessWidget {
                 style: GoogleFonts.inter(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
+                ),
+              ),
+
+              Visibility(
+                visible: subtitle != null,
+                child: Flexible(
+                  child: Text(
+                    '$subtitle',
+                    style: GoogleFonts.inter(fontSize: 14),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
                 ),
               ),
             ],

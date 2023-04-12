@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/models/kandungan_gizi_model.dart';
+import 'package:startertemplate/models/makanan_model.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class MenuMakananDetailPage extends StatelessWidget {
@@ -11,6 +12,11 @@ class MenuMakananDetailPage extends StatelessWidget {
   final KandunganGizi kandunganGizi;
   final List<String> bahanMakanan;
   final List<String> resep;
+  final KategoriUsia kategoriUsia;
+  final String tekstur;
+  final String frekuensi;
+  final String jumlahTiapMakan;
+  final String catatan;
 
   const MenuMakananDetailPage({
     super.key,
@@ -20,6 +26,11 @@ class MenuMakananDetailPage extends StatelessWidget {
     required this.kandunganGizi,
     required this.bahanMakanan,
     required this.resep,
+    required this.kategoriUsia,
+    required this.tekstur,
+    required this.frekuensi,
+    required this.jumlahTiapMakan,
+    required this.catatan,
   });
 
   @override
@@ -174,26 +185,55 @@ class MenuMakananDetailPage extends StatelessWidget {
                 ),
 
                 // Judul
-                Text(
-                  judul,
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24,
-                  ),
-                ),
-
-                // Kandungan energi
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      '🔥 ${kandunganGizi.energi} kcal',
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Center(
+                    child: Text(
+                      judul,
+                      textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
                       ),
                     ),
-                  ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+
+                // Kategori usia
+                Center(
+                  child: Text(
+                    "Usia ${kategoriUsia.minimum}-${kategoriUsia.maximum} ${kategoriUsia.satuanUsia.toString().split('.').last}",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.inter(
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+
+                // Keterangan makanan
+                // Tekstur
+
+                Text(
+                  "Tekstur:  $tekstur",
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Frekuensi:  $frekuensi",
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Jumlah tiap makan:  $jumlahTiapMakan",
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                  ),
                 ),
 
                 // pisah
@@ -213,6 +253,25 @@ class MenuMakananDetailPage extends StatelessWidget {
                   ),
                 ),
                 // Kandungan gizi
+                const SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Energi",
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                      ),
+                    ),
+                    Text(
+                      '🔥 ${kandunganGizi.energi} kcal',
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -344,6 +403,23 @@ class MenuMakananDetailPage extends StatelessWidget {
                     return const SizedBox(height: 4);
                   },
                   itemCount: resep.length,
+                ),
+
+                // Header catatan
+                const SizedBox(height: 16),
+                Text(
+                  "Catatan",
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  catatan,
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                  ),
                 ),
 
                 // Jarak kosong

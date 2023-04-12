@@ -31,7 +31,8 @@ List<MakananModel> makananData = [
     tekstur: 'Bubur kental lumat',
     frekuensi: '2-3x/hari + 1-2x selingan',
     jumlahTiapMakan: '2-3 sdm s.d. 1/2 mangkok (125 ml)',
-    catatan: 'Resep bisa dibuat dengan salah satu bahan di list bahan makanan',
+    catatan:
+        'Anda dapat membuat resep dengan menggunakan salah satu bahan makanan yang terdapat pada daftar bahan makanan',
   ),
   MakananModel(
     id: '2',
@@ -62,7 +63,8 @@ List<MakananModel> makananData = [
     tekstur: 'cincang halus, finger foods',
     frekuensi: '3-4x/hari + 1-2x selingan',
     jumlahTiapMakan: '1/2 - 3/4 mangkok (125 – 200 ml)',
-    catatan: 'Resep bisa dibuat dengan salah satu bahan di list bahan makanan',
+    catatan:
+        'Anda dapat membuat resep dengan menggunakan salah satu bahan makanan yang terdapat pada daftar bahan makanan',
   ),
   MakananModel(
     id: '3',
@@ -93,7 +95,8 @@ List<MakananModel> makananData = [
     tekstur: 'Makanan keluarga',
     frekuensi: '3-4x + 1-2x selingan',
     jumlahTiapMakan: '3/4 - 1 mangkok (250 ml)',
-    catatan: 'Resep bisa dibuat dengan salah satu bahan di list bahan makanan',
+    catatan:
+        'Anda dapat membuat resep dengan menggunakan salah satu bahan makanan yang terdapat pada daftar bahan makanan',
   ),
   MakananModel(
     id: '4',
@@ -125,7 +128,8 @@ List<MakananModel> makananData = [
     tekstur: '-',
     frekuensi: '-',
     jumlahTiapMakan: '-',
-    catatan: 'Resep bisa dibuat dengan salah satu bahan di list bahan makanan',
+    catatan:
+        'Anda dapat membuat resep dengan menggunakan salah satu bahan makanan yang terdapat pada daftar bahan makanan',
   ),
 ];
 

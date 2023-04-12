@@ -117,6 +117,11 @@ class _MenuMakananPageState extends State<MenuMakananPage> {
                               kandunganGizi: menuItem.kandunganGizi,
                               bahanMakanan: menuItem.bahanMakanan,
                               resep: menuItem.resep,
+                              kategoriUsia: menuItem.kategoriUsia,
+                              tekstur: menuItem.tekstur,
+                              frekuensi: menuItem.frekuensi,
+                              jumlahTiapMakan: menuItem.jumlahTiapMakan,
+                              catatan: menuItem.catatan,
                             ),
                           ),
                         );

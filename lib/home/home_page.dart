@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/artikel/artikel/artikel_page.dart';
 import 'package:startertemplate/home/components/menu_kotak.dart';
+import 'package:startertemplate/informasi_paten/megenal_stunting/mengenal_stunting_page.dart';
 import 'package:startertemplate/menu_makanan/menu_makanan/menu_makanan_page.dart';
 import 'package:startertemplate/models/artikel_model.dart';
 import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page.dart';
@@ -102,7 +103,14 @@ class HomePage extends StatelessWidget {
                     bgColor: MyColors.purple10,
                     title: 'Mengenal Stunting Pada Baduta',
                     imgPath: 'lib/images/heart_hand.png',
-                    btnOnTap: () {},
+                    btnOnTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MengenalStuntingPage(),
+                        ),
+                      );
+                    },
                   ),
 
                   // Perencanaan menu

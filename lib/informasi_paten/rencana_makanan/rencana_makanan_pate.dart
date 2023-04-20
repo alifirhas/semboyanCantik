@@ -3,8 +3,8 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
-class MengenalStuntingPage extends StatelessWidget {
-  const MengenalStuntingPage({super.key});
+class RencananMakananPage extends StatelessWidget {
+  const RencananMakananPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MengenalStuntingPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.6,
               width: double.infinity,
               child: Image.asset(
-                'lib/images/informasi_paten/aditya-romansa-5zp0jym2w9M-unsplash-compress.jpg',
+                'lib/images/informasi_paten/hui-sang-FKwGPzwaGqc-unsplash-compress.jpg',
                 fit: BoxFit.cover,
               ),
             ),
@@ -105,7 +105,7 @@ class MengenalStuntingPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Center(
                     child: Text(
-                      'Mengenal Stunting Pada Baduta',
+                      'Perencanaan Menu Tepat Gizi Cegah Stunting',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         fontWeight: FontWeight.bold,
@@ -143,31 +143,43 @@ class MengenalStuntingPage extends StatelessWidget {
                 MarkdownBody(
                   selectable: true,
                   data: '''
-Stunting adalah kondisi ketika tinggi badan anak lebih pendek dari standar usianya akibat kekurangan gizi dalam jangka panjang. Kondisi ini bisa disebabkan oleh malnutrisi yang dialami ibu saat hamil atau anak pada masa pertumbuhannya. Stunting adalah salah satu gangguan gizi kronik yang terjadi sejak ibu hamil sampai anak berusia 2 tahun.
+Kehamilan merupakan masa yang sangat penting bagi kesehatan janin. Seorang ibu hamil perlu memperhatikan asupan gizi dan nutrisi yang dikonsumsinya, termasuk dalam pemberian makanan pendamping ASI (MPASI) pada bayi.
 
-Ada beberapa faktor yang bisa menyebabkan stunting, antara lain
+Perencanaan menu tepat gizi untuk cegah stunting sedari dini merupakan kunci penting dalam memberikan asupan gizi yang adekuat, aman, dan diberikan dengan cara yang benar. Berikut adalah prinsip-prinsip pemberian MPASI yang perlu diperhatikan:
 
-1. Rendahnya asupan gizi,
-2. Praktek pengasuhan yang tidak baik, dan
-3. Buruknya fasilitas sanitasi seperti minimnya akses air bersih dan kurangnya kebersihan lingkungan.
+&nbsp;
 
-Ada 5 pintu utama menuju stunting yang harus diperhatikan, yaitu
+## 1. Tepat Waktu
 
-1. Saat ibu hamil mengalami kekurangan energi kronis (KEK) dan/atau anemia,
-2. kurangnya pemahaman ibu mengenai posisi dan pelekatan saat menyusui,
-3. kegagalan dalam memberikan ASI eksklusif,
-4. anak sering sakit dan gonta ganti susu formula,
-5. serta imunisasi yang tidak teratur.
+Pemberian MPASI harus dilakukan pada waktu yang tepat. Bayi sebaiknya diperkenalkan dengan makanan padat saat usia 6 bulan. Pada saat itu, bayi telah memiliki kesiapan enzimatik, motorik, dan psikologis untuk memproses makanan padat.
 
-Gejala stunting antara lain tubuh anak lebih pendek dibandingkan standar tinggi badan anak seusianya, berat badan anak bisa lebih rendah untuk anak seusianya, pertumbuhan tulang terhambat, mudah sakit, gangguan belajar, dan gangguan tumbuh kembang.
+&nbsp;
 
-Stunting dapat menyebabkan komplikasi seperti gangguan perkembangan otak, penyakit metabolik, dan anak mudah sakit dan terkena infeksi.
+## 2. Adekuat
 
-Untuk mencegah stunting, ada beberapa hal yang harus dilakukan, seperti memenuhi kebutuhan gizi saat hamil, menggunakan garam beryodium, memberikan ASI eksklusif selama 6 bulan, memberikan ASI sampai 2 tahun, memberikan makanan pendamping ASI (MPASI) yang sehat, memberikan obat cacing, memberikan vitamin A, mencuci tangan dengan benar, memberikan imunisasi dasar lengkap, terus memantau tumbuh kembang anak, selalu menjaga kebersihan lingkungan, dan memenuhi kebutuhan gizi selama 1000 hari pertama kehidupan anak.
+Asupan MPASI harus mengandung zat gizi yang adekuat, yaitu karbohidrat, protein, lemak, dan serat yang sesuai dengan kebutuhan bayi. Karbohidrat berfungsi sebagai sumber energi, protein untuk pertumbuhan dan perkembangan otot, lemak untuk perkembangan otak, dan serat untuk menjaga kesehatan pencernaan.
 
-Dalam memerangi stunting, peran semua pihak sangat penting. Mulai dari keluarga, masyarakat, hingga pemerintah harus bekerja sama untuk mencegah dan mengatasi stunting agar tercapai generasi bangsa yang sehat dan produktif.
+&nbsp;
 
-![Alt](resource:lib/images/informasi_paten/materi_stunting.png)
+## 3. Aman
+
+Penyajian MPASI harus dilakukan dengan cara yang aman dan higienis. Persiapan makanan harus dilakukan dengan cermat dan menggunakan bahan-bahan yang aman dan sehat. Penyimpanan makanan harus dilakukan pada suhu yang tepat untuk mencegah pertumbuhan bakteri yang tidak diinginkan.
+
+&nbsp;
+
+## 4. Diberikan dengan Cara yang Benar
+
+Pemberian MPASI harus dilakukan dengan cara yang benar dan responsif. Responsif feeding berarti memberikan makanan dengan memperhatikan respons bayi, seperti kapan bayi lapar, kapan bayi kenyang, dan apa yang disukai bayi.
+
+&nbsp;
+
+Jika asupan zat gizi sesuai kebutuhan bayi (adekuat), maka berat badan dan panjang badan akan bertambah optimal. Berat badan dan panjang badan yang optimal sama dengan bayi yang bertumbuh dengan baik.
+
+Berdasarkan Angka Kecukupan Gizi (AKG) 2019 untuk bayi dan anak, pada usia 6-11 bulan bayi memiliki berat badan 9 kg dan tinggi badan 72 cm dengan kebutuhan energi 800 kcal, protein 15 g, lemak total 31 g, omega 3 0.5 g, omega 6 4.4 g, karbohidrat 105 g, serat 11 g, dan air 900 ml.
+
+Pada usia 1-3 tahun, anak memiliki berat badan 13 kg dan tinggi badan 92 cm dengan kebutuhan energi 1350 kcal, protein 20 g, lemak total 45 g, omega 3 0.7 g, omega 6 7 g, karbohidrat 215 g, serat 19 g, dan air 1150 ml.
+
+Pada usia 4-6 tahun, anak memiliki berat badan 19 kg dan tinggi badan 113 cm dengan kebutuhan energi 1400 kcal, protein 25 g, lemak total 50 g, omega 3 0.9 g, omega 6 10 g, karbohidrat 220 g, serat 20 g, dan air 1450 ml.
 
 ''',
                   styleSheet: MarkdownStyleSheet(

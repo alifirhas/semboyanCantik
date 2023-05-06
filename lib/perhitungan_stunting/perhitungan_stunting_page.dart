@@ -311,7 +311,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                     ),
                     const SizedBox(height: 8),
 
-                    // HItung button
+                    // Hitung button
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [

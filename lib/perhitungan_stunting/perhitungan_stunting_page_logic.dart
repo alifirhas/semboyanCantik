@@ -1,6 +1,8 @@
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:startertemplate/data/child_growth_standard_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:startertemplate/models/child_growth_standard_model.dart';
+import 'package:startertemplate/models/jejak_stunting_model.dart';
 
 class PerhitunganStuntingPageLogic {
   Map<String, dynamic> formValidateUmur(
@@ -144,5 +146,29 @@ class PerhitunganStuntingPageLogic {
     }
 
     return hasil;
+  }
+
+  String transkripsiStatusZScoreSimple(double zScore) {
+    String hasil = '';
+
+    if (zScore.isInfinite) {
+      hasil = 'Batas';
+    } else if (zScore < -3) {
+      hasil = "Stunting Berat";
+    } else if (zScore >= -3 && zScore < -2) {
+      hasil = 'Stunting Ringan';
+    } else if (zScore >= -2 && zScore < 2) {
+      hasil = 'Sehat';
+    } else if (zScore >= 2 && zScore < 3) {
+      hasil = 'Atas Normal';
+    } else if (zScore >= 3) {
+      hasil = 'Gigantisme';
+    }
+
+    return hasil;
+  }
+
+  void addJejakStunting(JejakStunting jejakStunting) {
+    Hive.box('jejakStuntingBox').put(jejakStunting.id, jejakStunting);
   }
 }

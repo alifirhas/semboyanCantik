@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
 class ItemJejakStunting extends StatefulWidget {
@@ -7,6 +8,7 @@ class ItemJejakStunting extends StatefulWidget {
   final String tanggal;
   final double zScore;
   final String statusStunting;
+  final Function()? onTapDelete;
 
   const ItemJejakStunting({
     super.key,
@@ -14,6 +16,7 @@ class ItemJejakStunting extends StatefulWidget {
     required this.tanggal,
     required this.zScore,
     required this.statusStunting,
+    this.onTapDelete,
   });
 
   @override
@@ -21,6 +24,9 @@ class ItemJejakStunting extends StatefulWidget {
 }
 
 class ItemJejakStuntingState extends State<ItemJejakStunting> {
+  // Date formatter
+  final DateFormat formatter = DateFormat('dd MMM yyyy');
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +37,7 @@ class ItemJejakStuntingState extends State<ItemJejakStunting> {
       ),
       child: ListTile(
         title: Text(
-          widget.tanggal,
+          formatter.format(DateTime.parse(widget.tanggal)),
           style: GoogleFonts.inter(fontSize: 16),
         ),
         subtitle: Row(
@@ -39,7 +45,7 @@ class ItemJejakStuntingState extends State<ItemJejakStunting> {
           children: [
             // nilai z-score
             Text(
-              widget.zScore.toString(),
+              widget.zScore.toStringAsFixed(2),
               style: GoogleFonts.inter(
                 fontSize: 14,
               ),
@@ -70,7 +76,6 @@ class ItemJejakStuntingState extends State<ItemJejakStunting> {
                   actions: <Widget>[
                     TextButton(
                       onPressed: () {
-                        debugPrint("Tidak");
                         Navigator.of(context).pop();
                       },
                       child: Text(
@@ -83,7 +88,9 @@ class ItemJejakStuntingState extends State<ItemJejakStunting> {
                     TextButton(
                       onPressed: () {
                         // Hapus jejak stunting
-                        debugPrint("Hapus");
+                        debugPrint(widget.id.toString());
+                        widget.onTapDelete!();
+
                         Navigator.of(context).pop();
                       },
                       child: Text(

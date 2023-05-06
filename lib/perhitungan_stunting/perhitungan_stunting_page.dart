@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:startertemplate/models/jejak_stunting_model.dart';
 import 'package:startertemplate/perhitungan_stunting/jejak_stunting/jejak_stunting_page.dart';
 import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page_logic.dart';
 import 'package:startertemplate/utils/my_color.dart';
+import 'package:uuid/uuid.dart';
 
 class PerhitunganStuntingPage extends StatefulWidget {
   const PerhitunganStuntingPage({super.key});
@@ -346,7 +348,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                     ),
                     const SizedBox(height: 8),
 
-                    // Hitung button
+                    // Tombol hitung / Hitung button
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -355,6 +357,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                             final form = _periksaStuntingFormKey.currentState;
 
                             if (form!.validate()) {
+                              // Hitung zScore
                               double zScore =
                                   perhitunganStuntingPageLogic.hitungZScore(
                                 double.parse(tinggiBadanTextController.text),
@@ -363,13 +366,30 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                                 genderSelectController.text,
                               );
 
+                              // Tambah jejak stunting
+                              JejakStunting jejakStunting = JejakStunting(
+                                id: const Uuid().v4().toString(),
+                                createdDate: DateTime.now(),
+                                zScore: zScore,
+                                statusStunting: perhitunganStuntingPageLogic
+                                    .transkripsiStatusZScoreSimple(zScore),
+                                umur: perhitunganStuntingPageLogic
+                                    .convertUmurKeBulan(
+                                        int.parse(tahunTextController.text),
+                                        int.parse(bulanTextController.text)),
+                                tinggiBadan: double.parse(
+                                    tinggiBadanTextController.text),
+                                jenisKelamin: genderSelectController.text,
+                              );
+                              perhitunganStuntingPageLogic
+                                  .addJejakStunting(jejakStunting);
+
                               setState(() {
-                                // masukkan hasil
+                                // Perlihatkan hasil
                                 hasilDeskripsi = perhitunganStuntingPageLogic
                                     .transkripsiStatusZScore(zScore);
                                 hasilAngka = zScore.toStringAsFixed(2);
 
-                                // Perlihatkan hasil
                                 badutaCerdasVisible = false;
                                 hasilVisible = true;
                                 periksaStuntingVisible = false;

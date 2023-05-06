@@ -28,16 +28,16 @@ class JejakStuntingPageState extends State<JejakStuntingPage> {
     return Scaffold(
       backgroundColor: MyColors.basePurple,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 24,
-            left: 24,
-            right: 24,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 24,
+                left: 24,
+                right: 24,
+              ),
+              child: Row(
                 children: [
                   // Tombol kembali
                   InkWell(
@@ -67,11 +67,14 @@ class JejakStuntingPageState extends State<JejakStuntingPage> {
                   ),
                 ],
               ),
+            ),
 
-              // List jejak stunting
-              const SizedBox(height: 24),
-              listJejakStunting.isEmpty
-                  ? Column(
+            // List jejak stunting
+            const SizedBox(height: 24),
+            listJejakStunting.isEmpty
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
@@ -90,27 +93,33 @@ class JejakStuntingPageState extends State<JejakStuntingPage> {
                           ),
                         ),
                       ],
-                    )
-                  : ListView.separated(
+                    ),
+                  )
+                : Expanded(
+                    child: ListView.separated(
+                      // physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return ItemJejakStunting(
-                          id: listJejakStunting[index].id,
-                          tanggal:
-                              listJejakStunting[index].createdDate.toString(),
-                          zScore: listJejakStunting[index].zScore,
-                          statusStunting:
-                              listJejakStunting[index].statusStunting,
-                          onTapDelete: () {
-                            jejakStuntingPageLogic.deleteJejakStunting(
-                                listJejakStunting[index].id);
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                          child: ItemJejakStunting(
+                            id: listJejakStunting[index].id,
+                            tanggal:
+                                listJejakStunting[index].createdDate.toString(),
+                            zScore: listJejakStunting[index].zScore,
+                            statusStunting:
+                                listJejakStunting[index].statusStunting,
+                            onTapDelete: () {
+                              jejakStuntingPageLogic.deleteJejakStunting(
+                                  listJejakStunting[index].id);
 
-                            setState(() {
-                              listJejakStunting =
-                                  jejakStuntingPageLogic.getJejakStuntingList();
-                            });
-                          },
+                              setState(() {
+                                listJejakStunting = jejakStuntingPageLogic
+                                    .getJejakStuntingList();
+                              });
+                            },
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) {
@@ -118,8 +127,8 @@ class JejakStuntingPageState extends State<JejakStuntingPage> {
                       },
                       itemCount: listJejakStunting.length,
                     ),
-            ],
-          ),
+                  ),
+          ],
         ),
       ),
     );

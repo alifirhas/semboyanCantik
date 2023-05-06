@@ -70,27 +70,27 @@ class MyDrawer extends StatelessWidget {
           ),
 
           // SETTING PAGE
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingPage(),
-                  ),
-                );
-              },
-              child: ListTile(
-                leading: const Icon(Icons.settings),
-                title: Text(
-                  "S E T T I N G S",
-                  style: GoogleFonts.inter(color: Colors.grey[700]),
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       Navigator.pop(context);
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //           builder: (context) => const SettingPage(),
+          //         ),
+          //       );
+          //     },
+          //     child: ListTile(
+          //       leading: const Icon(Icons.settings),
+          //       title: Text(
+          //         "S E T T I N G S",
+          //         style: GoogleFonts.inter(color: Colors.grey[700]),
+          //       ),
+          //     ),
+          //   ),
+          // ),
 
           // LOGOUT BUTTON
           Padding(

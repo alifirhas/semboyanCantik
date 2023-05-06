@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /*
 
@@ -26,7 +27,37 @@ class AboutPage extends StatelessWidget {
           style: TextStyle(color: Colors.grey[800]),
         ),
       ),
-      body: const Center(child: Text('this app was designed for..')),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // logo
+              Image.asset(
+                'lib/images/logo.png',
+                height: 100,
+              ),
+              // Tentang aplikasi
+              Text(
+                'Semboyan Cantik',
+                style: GoogleFonts.inter(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Aplikasi cegah stunting baduta umur 0 tahun sampai 2 tahun',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -178,10 +178,10 @@ class HomePage extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  // Menu makanan baduta
+                  // Menu Cegah Stunting
                   MenuKotak(
                     bgColor: MyColors.purple10,
-                    title: 'Menu Makanan Baduta',
+                    title: 'Menu Cegah Stunting',
                     imgPath: 'lib/images/baby.png',
                     btnOnTap: () {
                       Navigator.push(

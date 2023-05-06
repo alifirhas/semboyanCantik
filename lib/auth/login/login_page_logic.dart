@@ -5,7 +5,7 @@ import 'package:startertemplate/main_page.dart';
 
 class LoginPageLogic {
   bool validateAccount(username, password) {
-    if (username != 'admin' && password != 'admin') {
+    if (username != 'iska' && password != 'kotakulon') {
       return false;
     }
 

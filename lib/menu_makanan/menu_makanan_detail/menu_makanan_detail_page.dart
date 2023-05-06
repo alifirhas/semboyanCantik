@@ -253,6 +253,7 @@ class MenuMakananDetailPage extends StatelessWidget {
                   ),
                 ),
                 // Kandungan gizi
+                // ! Untuk sementara hanya ada di energi
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -272,65 +273,65 @@ class MenuMakananDetailPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Protein",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      "${kandunganGizi.protein} g",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Lemak",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      "${kandunganGizi.lemak} g",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Karbohidrat",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                    Text(
-                      "${kandunganGizi.karbo} g",
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
+                // const SizedBox(height: 8),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Text(
+                //       "Protein",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //     Text(
+                //       "${kandunganGizi.protein} g",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // const SizedBox(height: 4),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Text(
+                //       "Lemak",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //     Text(
+                //       "${kandunganGizi.lemak} g",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // const SizedBox(height: 4),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     Text(
+                //       "Karbohidrat",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //     Text(
+                //       "${kandunganGizi.karbo} g",
+                //       style: GoogleFonts.inter(
+                //         fontSize: 14,
+                //       ),
+                //     ),
+                //   ],
+                // ),
 
                 // Header bahan
                 const SizedBox(height: 16),
                 Text(
-                  "Bahan",
+                  "Pilihan Bahan",
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
@@ -367,60 +368,62 @@ class MenuMakananDetailPage extends StatelessWidget {
                 ),
 
                 // Header cara membuat
-                const SizedBox(height: 16),
-                Text(
-                  "Cara Membuat",
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                  ),
-                ),
-                // Cara membuat
-                const SizedBox(height: 8),
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    final resepItem = resep[index];
+                // ! untuk sementara disembunyikan
+                // const SizedBox(height: 16),
+                // Text(
+                //   "Cara Membuat",
+                //   style: GoogleFonts.inter(
+                //     fontWeight: FontWeight.w400,
+                //     fontSize: 20,
+                //   ),
+                // ),
+                // // Cara membuat
+                // const SizedBox(height: 8),
+                // ListView.separated(
+                //   shrinkWrap: true,
+                //   physics: const NeverScrollableScrollPhysics(),
+                //   itemBuilder: (context, index) {
+                //     final resepItem = resep[index];
 
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "${index + 1}. ",
-                          style: GoogleFonts.inter(),
-                        ),
-                        Flexible(
-                          child: Text(
-                            resepItem,
-                            style: GoogleFonts.inter(),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                  separatorBuilder: (contenxt, index) {
-                    return const SizedBox(height: 4);
-                  },
-                  itemCount: resep.length,
-                ),
+                //     return Row(
+                //       crossAxisAlignment: CrossAxisAlignment.start,
+                //       children: [
+                //         Text(
+                //           "${index + 1}. ",
+                //           style: GoogleFonts.inter(),
+                //         ),
+                //         Flexible(
+                //           child: Text(
+                //             resepItem,
+                //             style: GoogleFonts.inter(),
+                //           ),
+                //         ),
+                //       ],
+                //     );
+                //   },
+                //   separatorBuilder: (contenxt, index) {
+                //     return const SizedBox(height: 4);
+                //   },
+                //   itemCount: resep.length,
+                // ),
 
                 // Header catatan
-                const SizedBox(height: 16),
-                Text(
-                  "Catatan",
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 20,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  catatan,
-                  style: GoogleFonts.inter(
-                    fontSize: 14,
-                  ),
-                ),
+                // ! Untuk sementara disembunyikan
+                // const SizedBox(height: 16),
+                // Text(
+                //   "Catatan",
+                //   style: GoogleFonts.inter(
+                //     fontWeight: FontWeight.w400,
+                //     fontSize: 20,
+                //   ),
+                // ),
+                // const SizedBox(height: 8),
+                // Text(
+                //   catatan,
+                //   style: GoogleFonts.inter(
+                //     fontSize: 14,
+                //   ),
+                // ),
 
                 // Jarak kosong
                 const SizedBox(height: 24),

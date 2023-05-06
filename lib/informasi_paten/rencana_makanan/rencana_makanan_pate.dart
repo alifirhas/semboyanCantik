@@ -173,6 +173,16 @@ Pemberian MPASI harus dilakukan dengan cara yang benar dan responsif. Responsif 
 
 &nbsp;
 
+## 5. Harus Dipahami oleh Orang Tua dan Pengasuh
+
+1. Berikan makanan pada bayi dan dampingi anak yang lebih besar ketika mereka makan sendiri. Perhatikan sinyal lapar dan kenyang yang ditunjukkan oleh anak-anak.
+2. Berikan makanan dengan pelan-pelan dan bersabarlah. Jangan memaksa anak untuk makan dan berikan semangat pada mereka.
+3. Jika anak menolak makanan, cobalah berbagai kombinasi menu, rasa, tekstur, dan metode untuk memperkenalkan mereka pada berbagai jenis makanan.
+4. Hindari pengalih perhatian saat anak sedang makan agar mereka tidak merasa bosan.
+5. Waktu makan anak adalah saat yang penting bagi mereka untuk belajar dan merasakan kasih sayang dari orangtua. Ajaklah anak berbicara dengan kontak mata selama makan agar mereka merasa diperhatikan.
+
+&nbsp;
+
 Jika asupan zat gizi sesuai kebutuhan bayi (adekuat), maka berat badan dan panjang badan akan bertambah optimal. Berat badan dan panjang badan yang optimal sama dengan bayi yang bertumbuh dengan baik.
 
 Berdasarkan Angka Kecukupan Gizi (AKG) 2019 untuk bayi dan anak, pada usia 6-11 bulan bayi memiliki berat badan 9 kg dan tinggi badan 72 cm dengan kebutuhan energi 800 kcal, protein 15 g, lemak total 31 g, omega 3 0.5 g, omega 6 4.4 g, karbohidrat 105 g, serat 11 g, dan air 900 ml.
@@ -180,6 +190,12 @@ Berdasarkan Angka Kecukupan Gizi (AKG) 2019 untuk bayi dan anak, pada usia 6-11 
 Pada usia 1-3 tahun, anak memiliki berat badan 13 kg dan tinggi badan 92 cm dengan kebutuhan energi 1350 kcal, protein 20 g, lemak total 45 g, omega 3 0.7 g, omega 6 7 g, karbohidrat 215 g, serat 19 g, dan air 1150 ml.
 
 Pada usia 4-6 tahun, anak memiliki berat badan 19 kg dan tinggi badan 113 cm dengan kebutuhan energi 1400 kcal, protein 25 g, lemak total 50 g, omega 3 0.9 g, omega 6 10 g, karbohidrat 220 g, serat 20 g, dan air 1450 ml.
+
+Ini adalah panduan cara penyajian, tekstur dan frekuensi makan untuk bayi dan anak di situasi normal dan bencana
+
+![Alt](resource:lib/images/informasi_paten/cara_penyajian_mpasi.jpg)
+
+Untuk anak usia 6-24 bulan yang tidak menyusu, pemberian makan mengikuti pedoman di atas dan setiap hari perlu ditambahkan: 1-2 kali makan ekstra dan 1-2 kali makanan selingan | 1-2 gelas susu per hari dan 2-3 kali cairan tambahan terutama di daerah dengan udara panas.
 
 ''',
                   styleSheet: MarkdownStyleSheet(

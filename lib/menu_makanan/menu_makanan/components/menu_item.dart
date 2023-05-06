@@ -26,7 +26,7 @@ class MenuItem extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         width: MediaQuery.of(context).size.width,
-        height: 150,
+        height: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
           color: MyColors.customWhite,
@@ -38,7 +38,7 @@ class MenuItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(22),
               child: Container(
-                height: 150,
+                height: 100,
                 width: 125,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -76,45 +76,46 @@ class MenuItem extends StatelessWidget {
                   ),
 
                   // Kandungan gizi protein, lemak, dan karbo
-                  const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Text(
-                      'Protein ${kandunganGizi.protein} g',
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Text(
-                      'Lemak ${kandunganGizi.lemak} g',
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Text(
-                      'Karbohidrat ${kandunganGizi.karbo} g',
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
+                  // ! Sementara disembunyikan
+                  // const SizedBox(height: 8),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  //   child: Text(
+                  //     'Protein ${kandunganGizi.protein} g',
+                  //     style: GoogleFonts.inter(
+                  //       fontSize: 14,
+                  //       color: Colors.grey.shade600,
+                  //     ),
+                  //     maxLines: 3,
+                  //     overflow: TextOverflow.ellipsis,
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 4),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  //   child: Text(
+                  //     'Lemak ${kandunganGizi.lemak} g',
+                  //     style: GoogleFonts.inter(
+                  //       fontSize: 14,
+                  //       color: Colors.grey.shade600,
+                  //     ),
+                  //     maxLines: 3,
+                  //     overflow: TextOverflow.ellipsis,
+                  //   ),
+                  // ),
+                  // const SizedBox(height: 4),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  //   child: Text(
+                  //     'Karbohidrat ${kandunganGizi.karbo} g',
+                  //     style: GoogleFonts.inter(
+                  //       fontSize: 14,
+                  //       color: Colors.grey.shade600,
+                  //     ),
+                  //     maxLines: 3,
+                  //     overflow: TextOverflow.ellipsis,
+                  //   ),
+                  // ),
 
                   // Energi di pojok kanan
                   // const Spacer(),
@@ -122,7 +123,7 @@ class MenuItem extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           '🔥 ${kandunganGizi.energi} kcal',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:select_form_field/select_form_field.dart';
+import 'package:startertemplate/perhitungan_stunting/jejak_stunting/jejak_stunting_page.dart';
 import 'package:startertemplate/perhitungan_stunting/perhitungan_stunting_page_logic.dart';
 import 'package:startertemplate/utils/my_color.dart';
 
@@ -61,22 +62,56 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Tombol kembali
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Ink(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: MyColors.customWhite,
-                      border: Border.all(color: MyColors.customGrey),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Tombol kembali
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Ink(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: MyColors.customWhite,
+                          border: Border.all(color: MyColors.customGrey),
+                        ),
+                        padding: const EdgeInsets.all(13),
+                        child: const Icon(Icons.arrow_back_ios_new_rounded),
+                      ),
                     ),
-                    padding: const EdgeInsets.all(13),
-                    child: const Icon(Icons.arrow_back_ios_new_rounded),
                   ),
-                ),
+
+                  // Tombol ke Jejak Stunting
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const JejakStuntingPage(),
+                        ),
+                      );
+                    },
+                    child: Ink(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: MyColors.customWhite,
+                          border: Border.all(color: MyColors.customGrey),
+                        ),
+                        padding: const EdgeInsets.all(13),
+                        child: Text(
+                          "Jejak Stunting",
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               // Title dan hasil

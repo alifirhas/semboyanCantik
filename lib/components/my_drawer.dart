@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:startertemplate/auth/logout/logout_logic.dart';
-import 'package:startertemplate/pages/setting_page.dart';
+// import 'package:startertemplate/pages/setting_page.dart';
 import '../pages/about_page.dart';
 
 /*

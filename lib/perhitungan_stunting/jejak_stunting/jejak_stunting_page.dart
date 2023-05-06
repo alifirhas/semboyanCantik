@@ -105,6 +105,7 @@ class JejakStuntingPageState extends State<JejakStuntingPage> {
                           padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: ItemJejakStunting(
                             id: listJejakStunting[index].id,
+                            namaBaduta: listJejakStunting[index].namaBaduta,
                             tanggal:
                                 listJejakStunting[index].createdDate.toString(),
                             zScore: listJejakStunting[index].zScore,

@@ -5,6 +5,7 @@ import 'package:startertemplate/utils/my_color.dart';
 
 class ItemJejakStunting extends StatefulWidget {
   final String id;
+  final String namaBaduta;
   final String tanggal;
   final double zScore;
   final String statusStunting;
@@ -13,6 +14,7 @@ class ItemJejakStunting extends StatefulWidget {
   const ItemJejakStunting({
     super.key,
     required this.id,
+    required this.namaBaduta,
     required this.tanggal,
     required this.zScore,
     required this.statusStunting,
@@ -37,7 +39,7 @@ class ItemJejakStuntingState extends State<ItemJejakStunting> {
       ),
       child: ListTile(
         title: Text(
-          formatter.format(DateTime.parse(widget.tanggal)),
+          "${widget.namaBaduta} - ${formatter.format(DateTime.parse(widget.tanggal))}",
           style: GoogleFonts.inter(fontSize: 16),
         ),
         subtitle: Row(

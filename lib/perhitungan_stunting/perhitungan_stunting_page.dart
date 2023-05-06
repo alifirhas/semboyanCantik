@@ -18,6 +18,7 @@ class PerhitunganStuntingPage extends StatefulWidget {
 
 class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
   // text editing controllers
+  final namaTextController = TextEditingController();
   final tahunTextController = TextEditingController();
   final bulanTextController = TextEditingController();
   final tinggiBadanTextController = TextEditingController();
@@ -187,6 +188,39 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                 key: _periksaStuntingFormKey,
                 child: Column(
                   children: [
+                    // Inpu nama textfield
+                    TextFormField(
+                      keyboardType: TextInputType.name,
+                      controller: namaTextController,
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey.shade400),
+                        ),
+                        fillColor: MyColors.customWhite,
+                        filled: true,
+                        hintText: 'Nama baduta',
+                        hintStyle: TextStyle(
+                          color: Colors.grey[500],
+                        ),
+                        suffix: Text(
+                          ' ',
+                          style: GoogleFonts.inter(
+                            color: MyColors.customGrey,
+                          ),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Tolong isi nama baduta';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 8),
+
                     // Input tahun dan bulan
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -380,6 +414,7 @@ class _PerhitunganStuntingPageState extends State<PerhitunganStuntingPage> {
                                 tinggiBadan: double.parse(
                                     tinggiBadanTextController.text),
                                 jenisKelamin: genderSelectController.text,
+                                namaBaduta: namaTextController.text,
                               );
                               perhitunganStuntingPageLogic
                                   .addJejakStunting(jejakStunting);

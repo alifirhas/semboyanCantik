@@ -24,6 +24,9 @@ class JejakStunting {
   @HiveField(6)
   String jenisKelamin;
 
+  @HiveField(7)
+  String namaBaduta;
+
   JejakStunting({
     required this.id,
     required this.createdDate,
@@ -32,5 +35,6 @@ class JejakStunting {
     required this.umur,
     required this.tinggiBadan,
     required this.jenisKelamin,
+    required this.namaBaduta,
   });
 }

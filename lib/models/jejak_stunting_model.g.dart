@@ -24,13 +24,14 @@ class JejakStuntingAdapter extends TypeAdapter<JejakStunting> {
       umur: fields[4] as int,
       tinggiBadan: fields[5] as double,
       jenisKelamin: fields[6] as String,
+      namaBaduta: fields[7] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, JejakStunting obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class JejakStuntingAdapter extends TypeAdapter<JejakStunting> {
       ..writeByte(5)
       ..write(obj.tinggiBadan)
       ..writeByte(6)
-      ..write(obj.jenisKelamin);
+      ..write(obj.jenisKelamin)
+      ..writeByte(7)
+      ..write(obj.namaBaduta);
   }
 
   @override
